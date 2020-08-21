@@ -1,0 +1,86 @@
+{% extends 'base.html'%}
+{%load bootstrap4%}
+{% block content %}
+{{block.super}}
+<br><br><br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h2><b> CREATE A NEW HOOD </b></h2>
+      <form action="{% url 'neighbourhood' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form layout='inline' %}
+        <input class="btn btn-success" value="Submit" type="submit">
+      </form> 
+    </div>
+
+    <div class="col-md-6"> 
+      {% for post in posts %}
+      <div class="card" style="width: 30rem;">
+        <div class="card-header" id="outline">
+          POSTS
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{post.title}}</li>
+          <li class="list-group-item">{{post.address}}</li>
+          <li class="list-group-item">{{post.description}} </li>
+        </ul>
+      </div>
+      {% endfor %}
+      <a href="/post"><button class="btn btn-default"> post</button></a>
+    </div>
+  </div>
+
+
+  <div class="card-columns">
+      {% for biashara in business %}
+      <div class="card mb-4">
+
+      
+        <img  src="{{biashara.logo.url}}" alt="" height="100px" width="auto" class="card-header">
+        <div class="card-body">
+          <h5 class="card-title">{{biashara.business_name}}
+          </h5>
+          <p class="card-text">{{biashara.business_email}}</p>
+          <p class="card-text">{{biz.description}}</p>
+          <p class="card-text">Owner: <small class="text-muted">
+              {{ biz.user.user.username|title }}</small></p>
+        </div>
+      </div>
+
+      {% endfor%}
+
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="card" style="width: 13rem;">
+    <div class="card-header" id="outline">
+      BUSINESSES
+    </div>
+    <div class="card-header">
+      <img class="rounded-circle account-img" src="{{biashara.logo.url}}">
+    </div>
+    <div class="card-text">
+      <ul class="list-group list-group-flush">
+
+        <li class="list-group-item">{{biashara.business_name}}</li>
+        <li class="list-group-item">{{biashara.business_email}} </li>
+      </ul>
+    </div>
+    <a href="{% url 'business' %}"> <button class="btn btn-default">add</button></a>
+  </div>
+  
