@@ -1,0 +1,1 @@
+web: gunicorn Vicinity.wsgi --log-file -
