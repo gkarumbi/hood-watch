@@ -1,11 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hood Watch</h1>
-</body>
-</html>
+{%extends 'base.html'%}
+{% block content %}
+{%load bootstrap4%}
+{% load static%}
+{{block.super}}
+
+<div class="container">
+    <h1 class="text-center"> ME & MY NEIGHBOURS</h1> <br>
+  <div class="row">
+    <div class="col-md-10">
+
+<div class="card-columns" >
+{% for hoods in neighbourhoods %}
+<div class="card" style="width: 18rem;" >
+    <div class="card-header" id="outline">
+        NEIGHBOURHOODS
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{hoods.hood_name}}</li>
+      <li class="list-group-item">{{hoods.location}} </li>
+      <li class="list-group-item">{{hoods.occupants}} </li>
+    </ul>
+     &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <a href="{% url 'business' %}"><button class="btn btn-default">JOIN</button> </a>
+  </div>
+ 
+{% endfor%}
+</div>
+    </div>
+        <div class="col-md-2" id="one">
+                <p>police Line <b>999</b></p> <hr>
+                <p>healthcare Line <b>237832</b> </p> <hr>
+                <p>sonko rescue team <b>5778355</b></p> <hr>
+                <p>Fire station <b>56368736</b></p>
+        </div>
+</div> <hr>
+
+</div>
+</div>
+{% endblock %}
