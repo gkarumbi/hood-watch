@@ -13,14 +13,25 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url,include
 from django.contrib import admin
-from django.contrib.auth import views 
+from django.urls import path,include
+# from myhood.views import BusinessCreateView
+
+from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
+from users import views as user_views
+from django.conf import settings
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'', include('hood.urls')),
-    url(r'^accounts/', include('registration.backends.simple.urls')),
-     
-    
+    path('admin/', admin.site.urls),
+    path('', include('myhood.urls')),
+    path('register/', user_views.register, name='register'),
+    path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
+    path('profile/', user_views.profile, name='profile'),
+    path('logout/', auth_views.LogoutView.as_view( template_name='logout.html' ), name='logout'),
+
 ]
+
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
