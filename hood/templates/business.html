@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{%load bootstrap4%}
+{% block content %}
+{{block.super}} 
+<br><br><br><br>
+<div class="container">
+    <div class="row" >
+    <div class="col-md-3"></div>
+    <div class="col-md-6" id="move" >
+        <h2><b>Register Your Business</b></h2>
+    <form action="{% url 'business' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form2 layout='inline' %}
+        <input class="btn btn-success" value="Submit" type="submit">
+
+    </form>
+    </div>
+
+    </div>
+    
+</div>
+{% endblock %}
