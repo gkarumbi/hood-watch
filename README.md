@@ -79,10 +79,7 @@ Open the application on your browser `127.0.0.1:8000`.
   
 ## Known Bugs  
 * There are no known bugs at the moment.
-  
-## Contact Information   
-If you have any question or contributions, please email any of us  at nyongesajoannanjala@gmail.com or maratah7@gmail.com or leave a comment here on Github.
-  
+    
 
 ### License
 MIT Copyright (c) 2020 [George Karumbi](https://github.com/gkarumbi/) ,[Wenslaus Makumba](https://github.com/Wenslaus-Makumba/) and [Mishael](https://github.com/mishael254)
