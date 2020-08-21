@@ -6,7 +6,7 @@
 
 Github link: https://github.com/gkarumbi/hood-watch
 
-Live site: [View Site](https://hood-watch.herokuapp.com/)
+Live site: [View Site](https://mishhood.herokuapp.com//)
   
 # Description  
 This is a neighborhood application where a user have to signup first and be able to view different neighbourhoods. A user can join or leave a neighbourhood and once he/she joins, they can view information about that neighbourhood.
